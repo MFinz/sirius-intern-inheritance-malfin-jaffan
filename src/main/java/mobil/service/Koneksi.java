@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author malfin
  */
-public class koneksi {
+public class Koneksi {
      private static Connection con;
      public static Connection KoneksiDB() throws SQLException {
         if (con == null) {
