@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package mobil;
+package  main.java.mobil.service;
 import java.sql.*;
 import javax.swing.table.*;
 import java.text.SimpleDateFormat;
@@ -199,7 +199,7 @@ public class JFrame4 extends javax.swing.JFrame {
                     +id_mobil.getSelectedItem()+"','"
                     +jumlah_penumpang.getText()+"','"
                     +fitur_tambahan.getText()+"')";
-            java.sql.Connection conn = (java.sql.Connection)mobil.koneksi.KoneksiDB();
+            java.sql.Connection conn = (java.sql.Connection)mobil.Koneksi.KoneksiDB();
             java.sql.PreparedStatement pst=conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Berhasil disimpan");
@@ -213,7 +213,7 @@ public class JFrame4 extends javax.swing.JFrame {
 
     private void hapus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapus1ActionPerformed
          try{
-        java.sql.Connection conn=(java.sql.Connection)mobil.koneksi.KoneksiDB();
+        java.sql.Connection conn=(java.sql.Connection)mobil.Koneksi.KoneksiDB();
         String sql = "delete from sedan where id = '" + id.getText()+"' ";
         java.sql.PreparedStatement pst = conn.prepareStatement(sql);
         pst.executeUpdate(); JOptionPane.showMessageDialog(null,"Data berhasil dihapus");
@@ -232,7 +232,7 @@ public class JFrame4 extends javax.swing.JFrame {
                     "', jumlah_penumpang ='"+jumlah_penumpang.getText()+
                     "', fitur_tambahan ='"+fitur_tambahan.getText()+
                     "' where id = '" + id.getText()+"'";
-            java.sql.Connection conn=(java.sql.Connection)mobil.koneksi.KoneksiDB();
+            java.sql.Connection conn=(java.sql.Connection)mobil.Koneksi.KoneksiDB();
             java.sql.PreparedStatement pst=conn.prepareStatement(sql);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Berhasil diubah");
@@ -246,7 +246,7 @@ public class JFrame4 extends javax.swing.JFrame {
 
     private void tb_cariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tb_cariActionPerformed
       try {
-            java.sql.Connection conn=(java.sql.Connection)mobil.koneksi.KoneksiDB();
+            java.sql.Connection conn=(java.sql.Connection)mobil.Koneksi.KoneksiDB();
             String sql = "select * from sedan where id = '"+ cari.getText()
                     + "' or id_mobil ='"+cari.getText()
                     + "' or jumlah_penumpang='"+cari.getText()
@@ -268,7 +268,7 @@ public class JFrame4 extends javax.swing.JFrame {
     private void id_mobilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_mobilActionPerformed
        try {
             String query = "select * from mobil";
-            Statement st = mobil.koneksi.KoneksiDB().createStatement();
+            Statement st = mobil.Koneksi.KoneksiDB().createStatement();
             ResultSet rs = st.executeQuery(query);
             
             
@@ -326,7 +326,7 @@ public class JFrame4 extends javax.swing.JFrame {
     tabel.addColumn("jumlah_penumpang");
     tabel.addColumn("fitur_tambahan");
     try {
-         java.sql.Connection conn = (java.sql.Connection)mobil.koneksi.KoneksiDB();
+         java.sql.Connection conn = (java.sql.Connection)mobil.Koneksi.KoneksiDB();
          String sql ="select * from sedan";
          java.sql.PreparedStatement pst = conn.prepareStatement(sql);
          ResultSet rs = pst.executeQuery(sql);
